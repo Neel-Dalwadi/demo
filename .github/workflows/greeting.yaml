@@ -1,9 +1,15 @@
 name: Greeting
-on: push
-jobs : 
-    greet:
-        runs-on: ubuntu-latest
-        steps:
-            -   name: "greeting user"
-                run: echo "Hello world!"
+# on: [push , workflow_dispatch]
+on :
+    - push
+    - workflow_dispatch
 
+jobs : 
+    test : 
+        runs-on : ubuntu-latest
+        steps : 
+            -   name: Get code
+                run : |
+                    echo "closing repo..."
+                    echo "${{toJson(github)}}"
+                    git clone https://github.com/${{github.repository}}/demo.git
