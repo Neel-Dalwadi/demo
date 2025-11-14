@@ -22,14 +22,10 @@ jobs:
                     password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
             -   name: Build Docker image
-                uses: docker/build-action@v3
-                with:
-                    run: |
-                        cd pokemon
-                        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pokmon_react:latest .
+                run: |
+                    cd pokemon
+                    docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pokmon_react:latest .
 
             -   name: Push Docker image
-                uses: docker/push-action@v3
-                with:
-                    run: |
-                        docker push ${{ secrets.DOCKERHUB_USERNAME }}/pokmon_react:latest
+                run: |
+                    docker push ${{ secrets.DOCKERHUB_USERNAME }}/pokmon_react:latest
