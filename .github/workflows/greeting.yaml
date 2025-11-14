@@ -24,7 +24,7 @@ jobs:
             - name: Build Docker image
               run: |
                   cd pokemon
-                  docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pokmon_react:latest ./pokemon
+                  docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pokmon_react:latest .
 
             - name: Push Docker image
               run: |
